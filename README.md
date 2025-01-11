@@ -1,115 +1,65 @@
-# Marimo Reactive Notebook Prompt Library
-> Starter codebase to use Marimo reactive notebooks to build a reusable, customizable, Prompt Library.
->
-> Take this codebase and use it as a starter codebase to build your own personal prompt library.
->
-> Marimo reactive notebooks & Prompt Library [walkthrough](https://youtu.be/PcLkBkQujMI)
->
-> Run multiple prompts against multiple models (SLMs & LLMs) [walkthrough](https://youtu.be/VC6QCEXERpU)
+# Marimo Prompt Library
 
-<img src="./images/multi_slm_llm_prompt_and_model.png" alt="multi llm prompting" style="max-width: 750px;">
+A collection of prompts and tools for working with large language models.
 
-<img src="./images/marimo_prompt_library.png" alt="marimo promptlibrary" style="max-width: 750px;">
+## Features
 
-## 1. Understand Marimo Notebook
-> This is a simple demo of the Marimo Reactive Notebook
-- Install hyper modern [UV Python Package and Project](https://docs.astral.sh/uv/getting-started/installation/)
-- Install dependencies `uv sync`
-- Install marimo `uv pip install marimo`
-- To Edit, Run `uv run marimo edit marimo_is_awesome_demo.py`
-- To View, Run `uv run marimo run marimo_is_awesome_demo.py`
-- Then use your favorite IDE & AI Coding Assistant to edit the `marimo_is_awesome_demo.py` directly or via the UI.
+-   **Prompt Library**: A collection of pre-built prompts for various tasks.
+-   **Multi-LLM Prompting**: Tools for running prompts against multiple LLMs.
+-   **Language Model Ranking**: Tools for ranking language models based on their performance.
+-   **Ad-hoc Prompting**: Tools for quickly testing and iterating on prompts.
+-   **LM Studio Support**: Integration with LM Studio for local model usage.
 
-## 2. Ad-hoc Prompt Notebook
-> Quickly run and test prompts across models
-- 🟡 Copy `.env.sample` to `.env` and set your keys (minimally set `OPENAI_API_KEY`)
-    - Add other keys and update the notebook to add support for additional SOTA LLMs
-- 🟡 Install Ollama (https://ollama.ai/) and pull the models you want to use
-    - Update the notebook to use Ollama models you have installed
-- To Edit, Run `uv run marimo edit adhoc_prompting.py`
-- To View, Run `uv run marimo run adhoc_prompting.py`
+## Getting Started
 
-## 3. ⭐️ Prompt Library Notebook
-> Build, Manage, Reuse, Version, and Iterate on your Prompt Library
-- 🟡 Copy `.env.sample` to `.env` and set your keys (minimally set `OPENAI_API_KEY`)
-    - Add other keys and update the notebook to add support for additional SOTA LLMs
-- 🟡 Install Ollama (https://ollama.ai/) and pull the models you want to use
-    - Update the notebook to use Ollama models you have installed
-- To Edit, Run `uv run marimo edit prompt_library.py`
-- To View, Run `uv run marimo run prompt_library.py`
+1.  Clone the repository:
 
-## 4. Multi-LLM Prompt
-> Quickly test a single prompt across multiple language models
-- 🟡 Ensure your `.env` file is set up with the necessary API keys for the models you want to use
-- 🟡 Install Ollama (https://ollama.ai/) and pull the models you want to use
-    - Update the notebook to use Ollama models you have installed
-- To Edit, Run `uv run marimo edit multi_llm_prompting.py`
-- To View, Run `uv run marimo run multi_llm_prompting.py`
+    ```bash
+    git clone https://github.com/disler/marimo-prompt-library.git
+    cd marimo-prompt-library
+    ```
 
-## 5. Multi Language Model Ranker
-> Compare and rank multiple language models across various prompts
-- 🟡 Ensure your `.env` file is set up with the necessary API keys for the models you want to compare
-- 🟡 Install Ollama (https://ollama.ai/) and pull the models you want to use
-    - Update the notebook to use Ollama models you have installed
-- To Edit, Run `uv run marimo edit multi_language_model_ranker.py`
-- To View, Run `uv run marimo run multi_language_model_ranker.py`
+2.  Install the dependencies:
 
-## General Usage
-> See the [Marimo Docs](https://docs.marimo.io/index.html) for general usage details
+    ```bash
+    pip install -e .
+    ```
 
-## Personal Prompt Library Use-Cases
-- Ad-hoc prompting
-- Prompt reuse
-- Prompt versioning
-- Interactive prompts
-- Prompt testing & Benchmarking
-- LLM comparison
-- Prompt templating
-- Run a single prompt against multiple LLMs & SLMs
-- Compare multi prompts against multiple LLMs & SLMs
-- Anything you can imagine!
+3.  Set up your environment variables. Create a `.env` file in the root directory and add the following:
 
-## Advantages of Marimo
+    ```env
+    OPENAI_API_KEY=your_openai_api_key
+    ANTHROPIC_API_KEY=your_anthropic_api_key
+    GOOGLE_API_KEY=your_google_api_key
+    LM_STUDIO_SERVER_URL=http://localhost
+    LM_STUDIO_SERVER_PORT=1234
+    ```
 
-### Key Advantages
-> Rapid Prototyping: Seamlessly transition between user and builder mode with `cmd+.` to toggle. Consumer vs Producer. UI vs Code. 
+    Replace the placeholder values with your actual API keys and LM Studio server details.
 
-> Interactivity: Built-in reactive UI elements enable intuitive data exploration and visualization.
+## LM Studio Integration
 
-> Reactivity: Cells automatically update when dependencies change, ensuring a smooth and efficient workflow.
+To use LM Studio with this library:
 
-> Out of the box: Use sliders, textareas, buttons, images, dataframe GUIs, plotting, and other interactive elements to quickly iterate on ideas.
+1.  **Install and Configure LM Studio**: Download and install LM Studio from [https://lmstudio.ai/](https://lmstudio.ai/). Start the LM Studio server.
+2.  **Set Environment Variables**: Ensure that the `LM_STUDIO_SERVER_URL` and `LM_STUDIO_SERVER_PORT` environment variables are set correctly in your `.env` file.
+3.  **Select LM Studio Model**: In the model selection UI, choose the LM Studio option and select your desired model.
 
-> It's 'just' Python: Pure Python scripts for easy version control and AI coding.
+## Usage
 
+The library provides several modules for different tasks:
 
-- **Reactive Execution**: Run one cell, and marimo automatically updates all affected cells. This eliminates the need to manually manage notebook state.
-- **Interactive Elements**: Provides reactive UI elements like dataframe GUIs and plots, making data exploration fast and intuitive.
-- **Python-First Design**: Notebooks are pure Python scripts stored as `.py` files. They can be versioned with git, run as scripts, and imported into other Python code.
-- **Reproducible by Default**: Deterministic execution order with no hidden state ensures consistent and reproducible results.
-- **Built for Collaboration**: Git-friendly notebooks where small changes yield small diffs, facilitating collaboration.
-- **Developer-Friendly Features**: Includes GitHub Copilot, autocomplete, hover tooltips, vim keybindings, code formatting, debugging panels, and extensive hotkeys.
-- **Seamless Transition to Production**: Notebooks can be run as scripts or deployed as read-only web apps.
-- **Versatile Use Cases**: Ideal for experimenting with data and models, building internal tools, communicating research, education, and creating interactive dashboards.
+-   `prompt_library.py`: Contains functions for loading and managing prompts.
+-   `multi_llm_prompting.py`: Contains functions for running prompts against multiple LLMs.
+-   `language_model_rankings.py`: Contains functions for ranking language models.
+-   `adhoc_prompting.py`: Contains functions for ad-hoc prompt testing.
+-   `lm_studio_integration.py`: Contains functions for interacting with LM Studio.
+-   `model_selection.py`: Contains functions for selecting and configuring models.
 
-### Advantages Over Jupyter Notebooks
+## Contributing
 
-- **Reactive Notebook**: Automatically updates dependent cells when code or values change, unlike Jupyter where cells must be manually re-executed.
-- **Pure Python Notebooks**: Stored as `.py` files instead of JSON, making them easier to version control, lint, and integrate with Python tooling.
-- **No Hidden State**: Deleting a cell removes its variables and updates affected cells, reducing errors from stale variables.
-- **Better Git Integration**: Plain Python scripts result in smaller diffs and more manageable version control compared to Jupyter's JSON format.
-- **Import Symbols**: Allows importing symbols from notebooks into other notebooks or Python files.
-- **Enhanced Interactivity**: Built-in reactive UI elements provide a more interactive experience than standard Jupyter widgets.
-- **App Deployment**: Notebooks can be served as web apps or exported to static HTML for easier sharing and deployment.
-- **Advanced Developer Tools**: Features like code formatting, GitHub Copilot integration, and debugging panels enhance the development experience.
-- **Script Execution**: Can be executed as standard Python scripts, facilitating integration into pipelines and scripts without additional tools.
+Contributions are welcome! Please submit a pull request with your changes.
 
-## Resources
-- https://docs.astral.sh/uv/
-- https://docs.marimo.io/index.html
-- https://youtu.be/PcLkBkQujMI
-- https://github.com/BuilderIO/gpt-crawler
-- https://github.com/simonw/llm
-- https://ollama.com/
-- https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
-- https://qwenlm.github.io/
+## License
+
+This project is licensed under the MIT License.
